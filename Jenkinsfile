@@ -10,7 +10,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sshagent(['test']) {
+                sshagent(['timepass-test']) {
                     sh 'scp -o StrictHostKeyChecking=no readme.md ubuntu@98.94.87.4:/var/www/html/'
                 }
             }
