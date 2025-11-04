@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+  
     environment {
         DEPLOY_USER = 'ubuntu'
         DEPLOY_HOST = '44.223.35.239'
