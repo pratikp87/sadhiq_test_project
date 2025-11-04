@@ -1,19 +1,15 @@
 pipeline {
     agent any
-
-    stages {
-        stage('Clone') {
+    stages { 
+        stage ('checkout') {
             steps {
-                git url: 'https://github.com/pratikp87/sadhiq_test_project.git', branch: 'main'
+                git url: 'https://github.com/pratikp87/sadhiq_test_project.git'
             }
         }
-
-        stage('Deploy') {
-            steps {
-                sshagent(['timepass-test']) {
-                    sh 'scp -o StrictHostKeyChecking=no readme.md ubuntu@98.94.87.4:/var/www/html/'
-                }
-            }
+        stage ('build') {
+             steps { 
+                 npm install and npm run build 
+             }
         }
     }
-}
+} 
